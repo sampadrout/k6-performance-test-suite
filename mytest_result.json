@@ -1,0 +1,159 @@
+{
+    "metrics": {
+        "http_reqs": {
+            "count": 14,
+            "rate": 2.729987824254304
+        },
+        "vus": {
+            "value": 1,
+            "min": 1,
+            "max": 1
+        },
+        "http_req_tls_handshaking": {
+            "min": 0,
+            "med": 0,
+            "max": 0,
+            "p(90)": 0,
+            "p(95)": 0,
+            "avg": 0
+        },
+        "Failure Rate": {
+            "passes": 0,
+            "fails": 28,
+            "value": 0
+        },
+        "http_req_connecting": {
+            "avg": 22.532,
+            "min": 0,
+            "med": 0,
+            "max": 315.448,
+            "p(90)": 0,
+            "p(95)": 110.40679999999988
+        },
+        "GET_API_TREND_DURATION_UpdateAddress": {
+            "avg": 342.65149999999994,
+            "min": 325.845,
+            "med": 342.9435,
+            "max": 358.194,
+            "p(90)": 351.6216,
+            "p(95)": 354.1887
+        },
+        "checks": {
+            "passes": 28,
+            "fails": 0,
+            "value": 1
+        },
+        "iterations": {
+            "count": 14,
+            "rate": 2.729987824254304
+        },
+        "http_req_duration": {
+            "p(90)": 351.6216,
+            "p(95)": 354.1887,
+            "avg": 342.65149999999994,
+            "min": 325.845,
+            "med": 342.9435,
+            "max": 358.194,
+            "thresholds": {
+                "p(95)<100": true,
+                "p(99)<200": true
+            }
+        },
+        "http_req_duration{expected_response:true}": {
+            "avg": 342.65149999999994,
+            "min": 325.845,
+            "med": 342.9435,
+            "max": 358.194,
+            "p(90)": 351.6216,
+            "p(95)": 354.1887
+        },
+        "http_req_sending": {
+            "avg": 0.04935714285714286,
+            "min": 0.035,
+            "med": 0.0415,
+            "max": 0.132,
+            "p(90)": 0.06130000000000002,
+            "p(95)": 0.08974999999999998
+        },
+        "http_req_waiting": {
+            "p(90)": 350.3184,
+            "p(95)": 352.78639999999996,
+            "avg": 341.1062142857143,
+            "min": 324.285,
+            "med": 340.9785,
+            "max": 356.611
+        },
+        "GET_API_TREND_WAITING_UpdateAddress": {
+            "avg": 341.1062142857143,
+            "min": 324.285,
+            "med": 340.9785,
+            "max": 356.611,
+            "p(90)": 350.3184,
+            "p(95)": 352.78639999999996
+        },
+        "http_req_failed": {
+            "passes": 0,
+            "fails": 14,
+            "value": 0
+        },
+        "http_req_receiving": {
+            "med": 1.2665,
+            "max": 3.048,
+            "p(90)": 2.3754000000000013,
+            "p(95)": 2.84325,
+            "avg": 1.4959285714285715,
+            "min": 1.101
+        },
+        "vus_max": {
+            "min": 1,
+            "max": 1,
+            "value": 1
+        },
+        "http_req_blocked": {
+            "p(90)": 0.008,
+            "p(95)": 110.86104999999989,
+            "avg": 22.629285714285704,
+            "min": 0.005,
+            "med": 0.006,
+            "max": 316.731
+        },
+        "data_sent": {
+            "count": 8848,
+            "rate": 1725.35230492872
+        },
+        "data_received": {
+            "count": 20174,
+            "rate": 3933.9124547504516
+        },
+        "iteration_duration": {
+            "p(90)": 357.193322,
+            "p(95)": 459.4782725999999,
+            "avg": 366.1576123571429,
+            "min": 326.850157,
+            "med": 345.5102485,
+            "max": 645.928183
+        }
+    },
+    "root_group": {
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {},
+        "checks": {
+            "Update Address status is 200 : ": {
+                "name": "Update Address status is 200 : ",
+                "path": "::Update Address status is 200 : ",
+                "id": "bde0a7180e89024b852e8d610be7d190",
+                "passes": 14,
+                "fails": 0
+            },
+            "SP Address ID validation success ": {
+                "name": "SP Address ID validation success ",
+                "path": "::SP Address ID validation success ",
+                "id": "b90fb620660203b4d40d7051fa318e2a",
+                "passes": 14,
+                "fails": 0
+            }
+        }
+    }
+}
