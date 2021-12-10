@@ -12,7 +12,7 @@ if (__ENV.environment == 'preprod') {
 
 export let options = {
     vus: GlobalOptions.VUS,
-    duration: GlobalOptions.DURATION,
+    duration: Number(GlobalOptions.DURATION)+'s',
     thresholds: {
         //Defining rquirements
         'http_req_duration': ['p(95)<100' ,'p(99)<200'],
@@ -22,6 +22,10 @@ export let options = {
 export default function () {
 
     try {
+        console.log("Inside updateAddress")
+        console.log("Endpoint url : ", environment.Base_URL)
+        console.log("SpAddressPath : ", environment.SPAddresses_Path)
+        console.log("SpAddressID : ", environment.SpAddressID_Value)
         UpdateAddress.updateAddress(environment.Base_URL, environment.SPAddresses_Path, environment.SpAddressID_Value, environment.CompanyId2_Value)
     }
     catch (exception) {

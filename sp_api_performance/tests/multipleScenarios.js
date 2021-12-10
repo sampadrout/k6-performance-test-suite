@@ -29,14 +29,14 @@ export let options = {
       executor: 'constant-vus',
       exec: 'searchValidID',
       vus: 2,
-      duration: '30s',
+      duration: '15s',
     },
     updateAddress: {
         executor: 'constant-vus',
         exec: 'updateAddress',
         vus: 2,
-        duration: '30s',
-        startTime: '10s',
+        duration: '15s',
+        startTime: '1s',
     },
     searchInvalidID: {
       executor: 'ramping-vus',
@@ -44,23 +44,22 @@ export let options = {
       startVUs: 0,
       stages: [
         { duration: '5s', target: 1 },
-        { duration: '5s', target: 3 },
-        { duration: '5s', target: 1 },
+        { duration: '10s', target: 2 }
       ],
-      gracefulRampDown: '0s',
+      gracefulRampDown: '10s',
     },
   },
-  thresholds: {
-    //Defining rquirements
-    Response_Time_ValidSearch: ['p(95)<100', 'p(99)<200'],
-    Response_Time_InvalidSearch: ['p(95)<100', 'p(99)<200'],
-    Response_Time_UpdateAddress: ['p(95)<100', 'p(99)<200'],
-    'http_req_failed': ['rate<0.01'], //failure rate should be less than 1%
-    'http_req_waiting': ['p(95)<100', 'p(99)<200'],
-    'http_req_duration{test_type:searchValidID}': ['p(95)<250', 'p(99)<350'],
-    'http_req_duration{test_type:updateAddress}': ['p(99)<500'],
-    'http_req_duration{scenario:invalidSearch}': ['p(99)<300'],
-  }
+  // thresholds: {
+  //   //Defining rquirements
+  //   Response_Time_ValidSearch: ['p(95)<100', 'p(99)<200'],
+  //   Response_Time_InvalidSearch: ['p(95)<100', 'p(99)<200'],
+  //   Response_Time_UpdateAddress: ['p(95)<100', 'p(99)<200'],
+  //   'http_req_failed': ['rate<0.01'], //failure rate should be less than 1%
+  //   'http_req_waiting': ['p(95)<100', 'p(99)<200'],
+  //   'http_req_duration{test_type:searchValidID}': ['p(95)<250', 'p(99)<350'],
+  //   'http_req_duration{test_type:updateAddress}': ['p(99)<500'],
+  //   'http_req_duration{scenario:invalidSearch}': ['p(99)<300'],
+  // }
 };
 
 export function searchValidID() {

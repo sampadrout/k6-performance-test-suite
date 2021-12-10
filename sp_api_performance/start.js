@@ -1,6 +1,7 @@
 import searchValidJob_Test  from "./tests/searchValidJob_Test.js";
 import searchInvalidJob_Test  from "./tests/searchInvalidJob_Test.js";
 import updateAddress_Test from "./tests/updateAddress_Test.js";
+import multipleScenarios_Test from "./tests/multipleScenarios.js";
 import {GlobalOptions} from './config/global_Config.js'
 import { PreprodENV } from './config/preprod_Config.js'
 import { qaENV } from './config/qa_Config.js'
@@ -16,11 +17,11 @@ export let options = {
     stages: [
         { duration: Number(GlobalOptions.DURATION)+'s', target: Number(GlobalOptions.VUS) },
         { duration: Number(GlobalOptions.DURATION)+10+'s', target: Number(GlobalOptions.VUS)+2 },
+        { duration: Number(GlobalOptions.DURATION)+'s', target: Number(GlobalOptions.VUS) },
     ]
 };
 
 export default function () {
-    searchValidJob_Test()
-    searchInvalidJob_Test()
-    updateAddress_Test()
+    searchValidJob_Test() && searchInvalidJob_Test() && updateAddress_Test()
+
 }

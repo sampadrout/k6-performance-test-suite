@@ -12,7 +12,7 @@ if (__ENV.environment == 'preprod') {
 
 export let options = {
     vus: GlobalOptions.VUS,
-    duration: GlobalOptions.DURATION,
+    duration: Number(GlobalOptions.DURATION)+'s',
     thresholds: {
         //Defining rquirements
         'http_req_duration': ['p(95)<100' ,'p(99)<200'],

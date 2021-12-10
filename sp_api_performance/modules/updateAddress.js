@@ -5,22 +5,18 @@ import * as requestBuilder from '../utilities/requestBuilder.js'
 import * as headerBuilder from '../utilities/headerBuilder.js'
 import * as urlBuilder from '../utilities/urlBuilder.js'
 
-// export let errorRate = new Rate('Failure Rate')
-// var putAPITrend_UpdateAddress = new Trend("GET_API_TREND_DURATION_UpdateAddress")
-// var getAPITrendWaiting_UpdateAddress = new Trend("GET_API_TREND_WAITING_UpdateAddress")
+export let errorRate = new Rate('Failure Rate')
+var putAPITrend_UpdateAddress = new Trend("GET_API_TREND_DURATION_UpdateAddress")
+var getAPITrendWaiting_UpdateAddress = new Trend("GET_API_TREND_WAITING_UpdateAddress")
 
 export function updateAddress(endpoint, SpAddressPath, SpAddressID, CompanyID) {
-    console.log("Inside updateAddress")
-    console.log("Endpoint url : ", endpoint)
-    console.log("SpAddressPath : ", SpAddressPath)
-    console.log("SpAddressID : ", SpAddressID)
-
+    
     let putResponse = http.put(urlBuilder.buildUpdateAddressURL(endpoint, SpAddressPath), JSON.stringify(requestBuilder.updateAddressRequestBody(SpAddressID, CompanyID)), {headers : headerBuilder.setUpdateAddressHeader})
 
     //Adding a check
     console.log("putResponse.status : ", putResponse.status)
     var checkPutResponse = check(putResponse, {
-        'Update Address status is 200 : ': (r) => r.status === 200,
+        'Update Address status is 200 ': (r) => r.status === 200,
     })
 
     // console.log('SP Address ID is',JSON.parse(putResponse.body).spAddressId)

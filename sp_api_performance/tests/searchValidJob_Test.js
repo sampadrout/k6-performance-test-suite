@@ -10,6 +10,15 @@ if (__ENV.environment == 'preprod') {
     environment = qaENV
 }
 
+export let options = {
+    vus: GlobalOptions.VUS,
+    duration: Number(GlobalOptions.DURATION)+'s',
+    thresholds: {
+        //Defining rquirements
+        'http_req_duration': ['p(95)<100' ,'p(99)<200'],
+    }
+};
+
 export default function () {
 
     try {
