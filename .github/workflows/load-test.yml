@@ -18,6 +18,6 @@ k6_load_test:
     - name: Run local k6 test
       uses: k6io/action@v0.1
       with:
-        filename: ./sp_api_performance/tests/multipleScenarios.js
+        filename: sp_api_performance/tests/multipleScenarios.js
       env:
           environment: preprod
