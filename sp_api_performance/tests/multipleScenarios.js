@@ -5,6 +5,11 @@ import * as searchValidJob from '../modules/searchValidJob.js'
 import * as searchInvalidJob from '../modules/searchInvalidJob.js'
 import { Rate, Trend } from 'k6/metrics'
 
+import faker from 'https://cdn.jsdelivr.net/gh/Marak/faker.js@master/examples/browser/js/faker.js';
+
+import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
+import { textSummary } from "https://jslib.k6.io/k6-summary/0.0.1/index.js";
+
 //Define the environent
 let environment;
 if (__ENV.environment == 'preprod') {
@@ -49,17 +54,17 @@ export let options = {
       gracefulRampDown: '10s',
     },
   },
-  // thresholds: {
-  //   //Defining rquirements
-  //   Response_Time_ValidSearch: ['p(95)<100', 'p(99)<200'],
-  //   Response_Time_InvalidSearch: ['p(95)<100', 'p(99)<200'],
-  //   Response_Time_UpdateAddress: ['p(95)<100', 'p(99)<200'],
-  //   'http_req_failed': ['rate<0.01'], //failure rate should be less than 1%
-  //   'http_req_waiting': ['p(95)<100', 'p(99)<200'],
-  //   'http_req_duration{test_type:searchValidID}': ['p(95)<250', 'p(99)<350'],
-  //   'http_req_duration{test_type:updateAddress}': ['p(99)<500'],
-  //   'http_req_duration{scenario:invalidSearch}': ['p(99)<300'],
-  // }
+  thresholds: {
+    //Defining rquirements
+    Response_Time_ValidSearch: ['p(95)<100', 'p(99)<200'],
+    Response_Time_InvalidSearch: ['p(95)<100', 'p(99)<200'],
+    Response_Time_UpdateAddress: ['p(95)<100', 'p(99)<200'],
+    'http_req_failed': ['rate<0.01'], //failure rate should be less than 1%
+    'http_req_waiting': ['p(95)<100', 'p(99)<200'],
+    'http_req_duration{test_type:searchValidID}': ['p(95)<250', 'p(99)<350'],
+    'http_req_duration{test_type:updateAddress}': ['p(99)<500'],
+    'http_req_duration{scenario:invalidSearch}': ['p(99)<300'],
+  }
 };
 
 export function searchValidID() {
@@ -75,4 +80,11 @@ export function updateAddress() {
 export function searchInvalidID() {
     console.log('Invalid Search',`VU: ${__VU}  -  ITER: ${__ITER}`);
     searchInvalidJob.searchInvalidJob(environment.Base_URL, environment.ServiceJobAttempt_Path, environment.CompanyId2_Value, environment.InvalidServiceJobId_Value)
+}
+
+export function handleSummary(data) {
+  return {
+    "summary_report.html": htmlReport(data),
+    stdout: textSummary(data, { indent: " ", enableColors: true }),
+  };
 }
