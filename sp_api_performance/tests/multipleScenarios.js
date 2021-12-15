@@ -84,7 +84,7 @@ export function searchInvalidID() {
 
 export function handleSummary(data) {
   return {
-    "summary_report.html": htmlReport(data),
+    "./report/summary_report.html": htmlReport(data),
     stdout: textSummary(data, { indent: " ", enableColors: true }),
   };
 }
