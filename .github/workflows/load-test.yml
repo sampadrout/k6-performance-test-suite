@@ -26,4 +26,4 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./report
+          PUBLISH_DIR: ./k6-performance-test-suite/report
