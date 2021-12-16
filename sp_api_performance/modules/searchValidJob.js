@@ -10,7 +10,7 @@ var getAPITrendWaiting_ValidSearch = new Trend("GET_API_TREND_WAITING_ValidSearc
 export function searchValidJob(endpoint, ServiceJobAttempt_Path, CompanyId2_Value, ServiceJobId2_Value) {
 
     let getResponse = http.get(urlBuilder.buildJobSearchURL(endpoint, ServiceJobAttempt_Path, CompanyId2_Value, ServiceJobId2_Value))
-    console.log('Response time was ' + String(getResponse.timings.duration) + ' ms');
+    console.log('Response time for searchValidJob was ' + String(getResponse.timings.duration) + ' ms');
     //Applying checks
     const check1 = check(getResponse, {
         'Response status for Valid search is 200 ': (r) => r.status === 200,

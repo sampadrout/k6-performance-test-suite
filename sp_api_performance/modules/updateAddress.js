@@ -12,6 +12,7 @@ var getAPITrendWaiting_UpdateAddress = new Trend("GET_API_TREND_WAITING_UpdateAd
 export function updateAddress(endpoint, SpAddressPath, SpAddressID, CompanyID) {
     
     let putResponse = http.put(urlBuilder.buildUpdateAddressURL(endpoint, SpAddressPath), JSON.stringify(requestBuilder.updateAddressRequestBody(SpAddressID, CompanyID)), {headers : headerBuilder.setUpdateAddressHeader})
+    console.log('Response time for updateAddress was ' + String(putResponse.timings.duration) + ' ms');
 
     //Adding a check
     console.log("putResponse.status : ", putResponse.status)

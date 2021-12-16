@@ -9,6 +9,8 @@ var getAPITrendWaiting_InvalidSearch = new Trend("GET_API_TREND_WAITING_InvalidS
 
 export function searchInvalidJob(endpoint, ServiceJobAttempt_Path, CompanyId2_Value, InvalidServiceJobId_Value) {
     let getResponse = http.get(urlBuilder.buildJobSearchURL(endpoint, ServiceJobAttempt_Path, CompanyId2_Value, InvalidServiceJobId_Value))
+    console.log('Response time for searchInvalidJob was ' + String(getResponse.timings.duration) + ' ms');
+
     //Invalid Search
     const check1 = check(getResponse, 
         {'Response status for Invalid search is 404 ': (r) => r.status == 404},
